@@ -37,10 +37,10 @@
         .menu-button {
             background-color: #001a33; /* Unified dark blue for button */
             color: white;
-            padding: 10px 15px;
+            padding: 15px 25px; /* Increased size */
             border: none;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.1em; /* Slightly larger font size */
             margin-right: 40px; /* Moved slightly to the left */
         }
         .menu-content {
@@ -53,7 +53,7 @@
         }
         .menu-content a {
             color: white;
-            padding: 10px;
+            padding: 10px 15px; /* Increased padding for menu items */
             text-decoration: none;
             display: block;
         }
@@ -86,6 +86,11 @@
                 menu.style.display = "block";
             }
         }
+
+        function loadPage(page) {
+            // Simulate loading a new page (You can replace this with actual navigation to a separate HTML file)
+            document.getElementById('main-content').innerHTML = `<h2>${page}</h2><p>Welcome to the ${page} page!</p>`;
+        }
     </script>
 </head>
 <body>
@@ -94,14 +99,16 @@
         <nav>
             <button class="menu-button" onclick="toggleMenu()">Menu</button>
             <div class="menu-content" id="dropdownMenu">
-                <a href="#about">About</a>
-                <a href="#members">Members</a>
-                <a href="#language">Language</a>
+                <a href="#" onclick="loadPage('Home')">Home</a>
+                <a href="#" onclick="loadPage('About')">About</a>
+                <a href="#" onclick="loadPage('Members')">Members</a>
+                <a href="#" onclick="loadPage('Language')">Language</a>
             </div>
         </nav>
     </header>
-    <main>
-        <!-- Main content can go here if needed -->
+    <main id="main-content">
+        <h2>Home</h2>
+        <p>Welcome to the Home page!</p>
     </main>
     <footer>
         <p>APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
