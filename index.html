@@ -94,7 +94,12 @@
                     description: "Here are the Members."
                 },
                 language: "Select a language:",
-                footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific."
+                footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.",
+                menu: {
+                    home: "Home",
+                    about: "About",
+                    members: "Members"
+                }
             },
             chinese: {
                 home: {
@@ -114,14 +119,13 @@
                 menu: {
                     home: "主页",
                     about: "关于",
-                    members: "成员",
-                    language: "选择语言："
+                    members: "成员"
                 }
             }
         };
 
         function toggleMenu() {
-            var menu = document.getElementById("dropdownMenu");
+            const menu = document.getElementById("dropdownMenu");
             menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
 
@@ -135,13 +139,14 @@
         function switchLanguage(lang) {
             currentLanguage = lang;
             loadPage('home'); // Reload the home page in the selected language
-            document.getElementById('language-label').innerText = content[lang].language; // Update language label
-            document.getElementById('footer-text').innerText = content[lang].footer; // Update footer text
             
             // Update menu options based on language
-            document.getElementById('menu-home').innerText = content[lang].menu.home || "Home";
-            document.getElementById('menu-about').innerText = content[lang].menu.about || "About";
-            document.getElementById('menu-members').innerText = content[lang].menu.members || "Members";
+            document.getElementById('menu-home').innerText = content[lang].menu.home;
+            document.getElementById('menu-about').innerText = content[lang].menu.about;
+            document.getElementById('menu-members').innerText = content[lang].menu.members;
+
+            // Update footer text and language label
+            document.getElementById('footer-text').innerText = content[lang].footer;
         }
 
         window.onload = function() {
