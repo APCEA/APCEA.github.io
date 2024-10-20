@@ -92,7 +92,13 @@
                 about: "这是关于页面。",
                 members: "这是成员。",
                 language: "选择语言：",
-                footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。"
+                footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。",
+                menu: {
+                    home: "主页",
+                    about: "关于",
+                    members: "成员",
+                    language: "选择语言："
+                }
             }
         };
 
@@ -107,7 +113,7 @@
 
         function loadPage(page) {
             const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = `<h2>${page}</h2><p>${content[currentLanguage][page.toLowerCase()]}</p>`;
+            mainContent.innerHTML = `<h2>${content[currentLanguage][page]}</h2><p>${content[currentLanguage][page.toLowerCase()]}</p>`;
         }
 
         let currentLanguage = 'english'; // Default language
@@ -117,6 +123,11 @@
             loadPage('Home'); // Reload the home page in the selected language
             document.getElementById('language-label').innerText = content[lang].language; // Update language label
             document.getElementById('footer-text').innerText = content[lang].footer; // Update footer text
+            
+            // Update menu options based on language
+            document.getElementById('menu-home').innerText = content[lang].menu.home;
+            document.getElementById('menu-about').innerText = content[lang].menu.about;
+            document.getElementById('menu-members').innerText = content[lang].menu.members;
         }
 
         window.onload = function() {
@@ -131,9 +142,9 @@
         <nav>
             <button class="menu-button" onclick="toggleMenu()">Menu</button>
             <div class="menu-content" id="dropdownMenu">
-                <a href="#" onclick="loadPage('Home')">Home</a>
-                <a href="#" onclick="loadPage('About')">About</a>
-                <a href="#" onclick="loadPage('Members')">Members</a>
+                <a href="#" id="menu-home" onclick="loadPage('Home')">Home</a>
+                <a href="#" id="menu-about" onclick="loadPage('About')">About</a>
+                <a href="#" id="menu-members" onclick="loadPage('Members')">Members</a>
                 <a href="#" onclick="switchLanguage('english')">English</a>
                 <a href="#" onclick="switchLanguage('chinese')">中文</a>
             </div>
