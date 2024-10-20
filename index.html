@@ -6,18 +6,76 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-            padding: 20px;
+            background-color: #001f3f; /* Dark blue background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
         }
-        p {
-            font-size: 1.2em;
-            margin-top: 0;
+        header {
+            background-color: #001a33; /* Slightly darker blue for header */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .company-name {
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+        nav {
+            position: relative;
+        }
+        .menu-button {
+            background-color: #003366; /* Mid dark blue for button */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            background-color: #003366; /* Same blue for menu */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .menu-content a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-content a:hover {
+            background-color: #0059b3; /* Lighter blue when hovered */
         }
     </style>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 </head>
 <body>
-    <p>APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
+    <header>
+        <div class="company-name">APCEA</div>
+        <nav>
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <div class="menu-content" id="dropdownMenu">
+                <a href="#about">About</a>
+                <a href="#members">Members</a>
+                <a href="#language">Language</a>
+            </div>
+        </nav>
+    </header>
+    <main style="padding: 20px; text-align: center;">
+        <p>APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
+    </main>
 </body>
 </html>
