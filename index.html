@@ -53,9 +53,10 @@
         }
         .menu-content a {
             color: white;
-            padding: 10px 15px; /* Increased padding for menu items */
+            padding: 15px 25px; /* Increased padding for menu items */
             text-decoration: none;
             display: block;
+            font-size: 1.2em; /* Increased font size for menu items */
         }
         .menu-content a:hover {
             background-color: #000d1a; /* Slightly darker blue when hovered */
@@ -78,6 +79,23 @@
         }
     </style>
     <script>
+        const content = {
+            english: {
+                home: "Welcome to the Home page!",
+                about: "This is the About page.",
+                members: "Here are the Members.",
+                language: "Select a language:",
+                footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific."
+            },
+            chinese: {
+                home: "欢迎来到主页！",
+                about: "这是关于页面。",
+                members: "这是成员。",
+                language: "选择语言：",
+                footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。"
+            }
+        };
+
         function toggleMenu() {
             var menu = document.getElementById("dropdownMenu");
             if (menu.style.display === "block") {
@@ -88,9 +106,23 @@
         }
 
         function loadPage(page) {
-            // Simulate loading a new page (You can replace this with actual navigation to a separate HTML file)
-            document.getElementById('main-content').innerHTML = `<h2>${page}</h2><p>Welcome to the ${page} page!</p>`;
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `<h2>${page}</h2><p>${content[currentLanguage][page.toLowerCase()]}</p>`;
         }
+
+        let currentLanguage = 'english'; // Default language
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            loadPage('Home'); // Reload the home page in the selected language
+            document.getElementById('language-label').innerText = content[lang].language; // Update language label
+            document.getElementById('footer-text').innerText = content[lang].footer; // Update footer text
+        }
+
+        window.onload = function() {
+            loadPage('Home'); // Load the home page by default
+            switchLanguage(currentLanguage); // Set the initial language
+        };
     </script>
 </head>
 <body>
@@ -102,7 +134,8 @@
                 <a href="#" onclick="loadPage('Home')">Home</a>
                 <a href="#" onclick="loadPage('About')">About</a>
                 <a href="#" onclick="loadPage('Members')">Members</a>
-                <a href="#" onclick="loadPage('Language')">Language</a>
+                <a href="#" onclick="switchLanguage('english')">English</a>
+                <a href="#" onclick="switchLanguage('chinese')">中文</a>
             </div>
         </nav>
     </header>
@@ -111,7 +144,7 @@
         <p>Welcome to the Home page!</p>
     </main>
     <footer>
-        <p>APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
+        <p id="footer-text">APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
     </footer>
 </body>
 </html>
