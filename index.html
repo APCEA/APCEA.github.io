@@ -37,10 +37,10 @@
         .menu-button {
             background-color: #001a33; /* Unified dark blue for button */
             color: white;
-            padding: 15px 25px; /* Increased size */
+            padding: 20px 30px; /* Increased padding for a larger button */
             border: none;
             cursor: pointer;
-            font-size: 1.1em; /* Slightly larger font size */
+            font-size: 1.5em; /* Increased font size for the button */
             margin-right: 40px; /* Moved slightly to the left */
         }
         .menu-content {
@@ -145,7 +145,7 @@
             document.getElementById('menu-about').innerText = content[lang].menu.about;
             document.getElementById('menu-members').innerText = content[lang].menu.members;
 
-            // Update footer text and language label
+            // Update footer text
             document.getElementById('footer-text').innerText = content[lang].footer;
         }
 
