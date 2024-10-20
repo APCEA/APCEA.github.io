@@ -81,16 +81,34 @@
     <script>
         const content = {
             english: {
-                home: "Welcome to the Home page!",
-                about: "This is the About page.",
-                members: "Here are the Members.",
+                home: {
+                    title: "Home",
+                    description: "Welcome to the Home page!"
+                },
+                about: {
+                    title: "About",
+                    description: "This is the About page."
+                },
+                members: {
+                    title: "Members",
+                    description: "Here are the Members."
+                },
                 language: "Select a language:",
                 footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific."
             },
             chinese: {
-                home: "欢迎来到主页！",
-                about: "这是关于页面。",
-                members: "这是成员。",
+                home: {
+                    title: "主页",
+                    description: "欢迎来到主页！"
+                },
+                about: {
+                    title: "关于",
+                    description: "这是关于页面。"
+                },
+                members: {
+                    title: "成员",
+                    description: "这是成员。"
+                },
                 language: "选择语言：",
                 footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。",
                 menu: {
@@ -104,34 +122,30 @@
 
         function toggleMenu() {
             var menu = document.getElementById("dropdownMenu");
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
 
         function loadPage(page) {
             const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = `<h2>${content[currentLanguage][page]}</h2><p>${content[currentLanguage][page.toLowerCase()]}</p>`;
+            mainContent.innerHTML = `<h2>${content[currentLanguage][page].title}</h2><p>${content[currentLanguage][page].description}</p>`;
         }
 
         let currentLanguage = 'english'; // Default language
 
         function switchLanguage(lang) {
             currentLanguage = lang;
-            loadPage('Home'); // Reload the home page in the selected language
+            loadPage('home'); // Reload the home page in the selected language
             document.getElementById('language-label').innerText = content[lang].language; // Update language label
             document.getElementById('footer-text').innerText = content[lang].footer; // Update footer text
             
             // Update menu options based on language
-            document.getElementById('menu-home').innerText = content[lang].menu.home;
-            document.getElementById('menu-about').innerText = content[lang].menu.about;
-            document.getElementById('menu-members').innerText = content[lang].menu.members;
+            document.getElementById('menu-home').innerText = content[lang].menu.home || "Home";
+            document.getElementById('menu-about').innerText = content[lang].menu.about || "About";
+            document.getElementById('menu-members').innerText = content[lang].menu.members || "Members";
         }
 
         window.onload = function() {
-            loadPage('Home'); // Load the home page by default
+            loadPage('home'); // Load the home page by default
             switchLanguage(currentLanguage); // Set the initial language
         };
     </script>
@@ -142,9 +156,9 @@
         <nav>
             <button class="menu-button" onclick="toggleMenu()">Menu</button>
             <div class="menu-content" id="dropdownMenu">
-                <a href="#" id="menu-home" onclick="loadPage('Home')">Home</a>
-                <a href="#" id="menu-about" onclick="loadPage('About')">About</a>
-                <a href="#" id="menu-members" onclick="loadPage('Members')">Members</a>
+                <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
+                <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
+                <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
                 <a href="#" onclick="switchLanguage('english')">English</a>
                 <a href="#" onclick="switchLanguage('chinese')">中文</a>
             </div>
