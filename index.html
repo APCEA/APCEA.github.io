@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>APCEA</title>
   <style>
-    /* ------------------------------------------------------------
-       GLOBAL STYLES
-    ------------------------------------------------------------ */
+    /* Reset and Base Styles */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    html {
+      font-size: 18px; /* Increased base font size */
+    }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff; /* White background to let logo colors pop */
-      color: #000;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; 
     }
-    /* ------------------------------------------------------------
-       HEADER & NAVIGATION
-    ------------------------------------------------------------ */
+    /* Header & Navigation */
     header {
-      /* Multi-color gradient inspired by the APCEA logo */
-      background: linear-gradient(to right, #e53935, #ffb300, #ffeb3b, #43a047, #1e88e5);
-      padding: 20px;
+      background-color: #002540; /* Unified navy blue */
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -37,109 +36,95 @@
       align-items: center;
     }
     .logo-container img {
-      height: 70px; /* Adjust as needed */
-      margin-right: 15px;
+      height: 80px; /* Larger logo */
+      margin-right: 1rem;
     }
     .company-name {
       font-family: Georgia, serif;
-      font-size: 2em;
+      font-size: 2rem;
       color: #fff;
-      white-space: nowrap;
     }
     nav {
       position: relative;
     }
     .menu-button {
-      background-color: rgba(0, 0, 0, 0.2);
+      background: transparent;
+      border: 2px solid #fff;
       color: #fff;
-      padding: 10px 20px;
-      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
       cursor: pointer;
-      font-size: 1.2em;
       border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
     }
     .menu-button:hover {
-      background-color: rgba(0, 0, 0, 0.3);
+      background: #fff;
+      color: #002540;
     }
     .menu-content {
       display: none;
       position: absolute;
       right: 0;
-      top: 60px;
-      background-color: #fff; 
-      color: #000;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 999;
+      top: 3rem;
+      background: #fff;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      overflow: hidden;
+      z-index: 10;
     }
     .menu-content a {
-      color: #000;
-      padding: 12px 16px;
-      text-decoration: none;
       display: block;
-      font-size: 1em;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: #002540;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s;
+    }
+    .menu-content a:last-child {
+      border-bottom: none;
     }
     .menu-content a:hover {
-      background-color: #f1f1f1;
+      background: #f0f0f0;
     }
-    /* ------------------------------------------------------------
-       MAIN CONTENT
-    ------------------------------------------------------------ */
+    /* Main Content */
     main {
       flex: 1;
-      padding: 40px;
-      max-width: 1200px; 
+      padding: 2rem;
+      max-width: 960px;
       margin: 0 auto;
     }
     main h2 {
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       color: #002540;
     }
-    main p {
-      margin-bottom: 20px;
-      line-height: 1.6;
+    main p, main li {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
-    /* ------------------------------------------------------------
-       FOOTER
-    ------------------------------------------------------------ */
+    /* Footer */
     footer {
-      background-color: #002540;
-      padding: 20px;
+      background: #002540;
+      padding: 1rem 2rem;
       text-align: center;
     }
     footer p {
       color: #fff;
-      font-size: 1em;
+      font-size: 1.2rem;
     }
-    footer a {
-      color: #ffeb3b;
-      text-decoration: none;
-      margin-left: 10px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    /* ------------------------------------------------------------
-       RESPONSIVE DESIGN
-    ------------------------------------------------------------ */
-    @media (max-width: 768px) {
+    /* Responsive Design */
+    @media (max-width:768px) {
       header {
-        flex-direction: column;
-        align-items: flex-start;
+         flex-direction: column;
+         align-items: flex-start;
       }
-      .menu-button {
-        margin-top: 10px;
+      nav {
+         margin-top: 1rem;
       }
     }
   </style>
-
   <script>
-    /*
-      ------------------------------------------------------------
-      BILINGUAL CONTENT
-    ------------------------------------------------------------ */
+    /* Bilingual Content */
     const content = {
       english: {
         home: {
@@ -221,42 +206,28 @@
       }
     };
 
-    // Default language
     let currentLanguage = 'english';
 
-    // Toggle dropdown menu
     function toggleMenu() {
       const menu = document.getElementById("dropdownMenu");
       menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 
-    // Load specific page content
     function loadPage(page) {
       const mainContent = document.getElementById('main-content');
-      mainContent.innerHTML = `
-        <h2>${content[currentLanguage][page].title}</h2>
-        ${content[currentLanguage][page].description}
-      `;
-      toggleMenu(); // Close the menu after selection
+      mainContent.innerHTML = `<h2>${content[currentLanguage][page].title}</h2>${content[currentLanguage][page].description}`;
+      toggleMenu();
     }
 
-    // Switch language and update content
     function switchLanguage(lang) {
       currentLanguage = lang;
-      loadPage('home'); // Reload home page in selected language
-
-      // Update menu text
+      loadPage('home');
       document.getElementById('menu-home').innerText = content[lang].menu.home;
       document.getElementById('menu-about').innerText = content[lang].menu.about;
       document.getElementById('menu-members').innerText = content[lang].menu.members;
-
-      // Update footer text
       document.getElementById('footer-text').innerText = content[lang].footer;
-      // Re-add GitHub link after updating footer text
-      document.getElementById('footer-text').innerHTML += ' | <a href="https://github.com/yourusername/yourrepository" target="_blank">View on GitHub</a>';
     }
 
-    // Initialize page on load
     window.onload = function() {
       loadPage('home');
       switchLanguage(currentLanguage);
@@ -264,10 +235,9 @@
   </script>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="logo-container">
-      <!-- The logo image. Make sure this file is in the same folder as your HTML file, or update the path accordingly. -->
+      <!-- Ensure your logo file (35fadaf145c6514653cfefc222d51b8.jpg) is in the same folder or adjust the path accordingly -->
       <img src="35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
       <div class="company-name">APCEA</div>
     </div>
@@ -282,17 +252,12 @@
       </div>
     </nav>
   </header>
-
-  <!-- MAIN CONTENT -->
   <main id="main-content">
-    <!-- Dynamic content will be injected here -->
+    <!-- Dynamic content will be loaded here -->
   </main>
-
-  <!-- FOOTER -->
   <footer>
     <p id="footer-text">
       APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.
-      | <a href="https://github.com/yourusername/yourrepository" target="_blank">View on GitHub</a>
     </p>
   </footer>
 </body>
