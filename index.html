@@ -1,180 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #002540; /* Unified dark blue background */
-            color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensures footer is pushed to the bottom */
-        }
-        header {
-            background-color: #001a33; /* Unified dark blue for header */
-            padding: 20px; /* Larger header */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .company-name {
-            font-family: Georgia, serif; /* Suitable font for APCEA */
-            font-size: 2em;
-            margin-left: 20px;
-            border: 2px solid #001a33; /* Matching dark blue for box */
-            padding: 10px 15px;
-            border-radius: 5px;
-            background-color: #001a33; /* Matching dark blue for box */
-            color: white; /* White text */
-        }
-        nav {
-            position: relative;
-        }
-        .menu-button {
-            background-color: #001a33; /* Unified dark blue for button */
-            color: white;
-            padding: 20px 30px; /* Increased padding for a larger button */
-            border: none;
-            cursor: pointer;
-            font-size: 1.5em; /* Increased font size for the button */
-            margin-right: 40px; /* Moved slightly to the left */
-        }
-        .menu-content {
-            display: none;
-            position: absolute;
-            top: 50px; /* Adjusted for larger header */
-            background-color: #001a33; /* Unified dark blue for menu */
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .menu-content a {
-            color: white;
-            padding: 15px 25px; /* Adjusted padding for menu items */
-            text-decoration: none;
-            display: block;
-            font-size: 1.2em; /* Decreased font size for menu items */
-        }
-        .menu-content a:hover {
-            background-color: #000d1a; /* Slightly darker blue when hovered */
-        }
-        main {
-            background-color: white; /* White for the main section */
-            padding: 40px;
-            text-align: center;
-            flex: 1; /* Allows the main section to grow and take up available space */
-            color: black; /* Change text color to black for visibility */
-        }
-        footer {
-            background-color: #001a33; /* Unified dark blue for footer */
-            padding: 20px;
-            text-align: center;
-        }
-        p {
-            font-size: 1.2em;
-            margin: 0;
-        }
-    </style>
-    <script>
-        const content = {
-            english: {
-                home: {
-                    title: "Home",
-                    description: "Welcome to the Home page!"
-                },
-                about: {
-                    title: "About",
-                    description: "This is the About page."
-                },
-                members: {
-                    title: "Members",
-                    description: "Here are the Members."
-                },
-                language: "Select a language:",
-                footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.",
-                menu: {
-                    home: "Home",
-                    about: "About",
-                    members: "Members"
-                }
-            },
-            chinese: {
-                home: {
-                    title: "主页",
-                    description: "欢迎来到主页！"
-                },
-                about: {
-                    title: "关于",
-                    description: "这是关于页面。"
-                },
-                members: {
-                    title: "成员",
-                    description: "这是成员。"
-                },
-                language: "选择语言：",
-                footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。",
-                menu: {
-                    home: "主页",
-                    about: "关于",
-                    members: "成员"
-                }
-            }
-        };
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APCEA</title>
+  <style>
+    /* 
+      ------------------------------------------------------------
+      GLOBAL STYLES
+      ------------------------------------------------------------
+    */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; /* White background to let logo colors pop */
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; 
+    }
+    /* 
+      ------------------------------------------------------------
+      HEADER & NAVIGATION
+      ------------------------------------------------------------
+    */
+    header {
+      /* 
+        A multi-color gradient inspired by the logo (red, orange, yellow, green, blue).
+        You can adjust these colors to better match your logo.
+      */
+      background: linear-gradient(to right, #e53935, #ffb300, #ffeb3b, #43a047, #1e88e5);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-container img {
+      height: 70px; /* Adjust as needed */
+      margin-right: 15px;
+    }
+    .company-name {
+      font-family: Georgia, serif;
+      font-size: 2em;
+      color: #fff;
+      white-space: nowrap;
+    }
+    nav {
+      position: relative;
+    }
+    .menu-button {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      border-radius: 4px;
+    }
+    .menu-button:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .menu-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: #fff; 
+      color: #000;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 999;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .menu-content a {
+      color: #000;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 1em;
+    }
+    .menu-content a:hover {
+      background-color: #f1f1f1;
+    }
+    /*
+      ------------------------------------------------------------
+      MAIN CONTENT
+      ------------------------------------------------------------
+    */
+    main {
+      flex: 1; /* Grow and take up available space */
+      padding: 40px;
+      max-width: 1200px; 
+      margin: 0 auto;
+    }
+    main h2 {
+      margin-bottom: 20px;
+      color: #002540;
+    }
+    main p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    /* 
+      ------------------------------------------------------------
+      FOOTER
+      ------------------------------------------------------------
+    */
+    footer {
+      background-color: #002540;
+      padding: 20px;
+      text-align: center;
+    }
+    footer p {
+      color: #fff;
+      font-size: 1em;
+    }
+    /*
+      ------------------------------------------------------------
+      RESPONSIVE DESIGN
+      ------------------------------------------------------------
+    */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-button {
+        margin-top: 10px;
+      }
+    }
+  </style>
 
-        function toggleMenu() {
-            const menu = document.getElementById("dropdownMenu");
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  <script>
+    /*
+      ------------------------------------------------------------
+      CONTENT OBJECT
+      - Store your bilingual content here for easy switching.
+      - The "about" pages now contain the full text from your prompt.
+      ------------------------------------------------------------
+    */
+    const content = {
+      english: {
+        home: {
+          title: "Home",
+          description: `
+            <p>Welcome to APCEA! We are a family-founded, youth-driven nonprofit organization dedicated to promoting Asian culture, fostering educational growth, and serving our local communities. Explore our site to learn more about our mission and activities.</p>
+          `
+        },
+        about: {
+          title: "About",
+          description: `
+            <p><strong>The Asia Pacific Culture and Education Association</strong> is a family-founded, youth-driven nonprofit organization dedicated to promoting Asian culture, fostering educational growth, and serving our local communities.</p>
+            <p>Based in Southern California, our team is made up of mothers and their children, working side-by-side to create meaningful cultural and educational experiences. We empower youth to take the lead—planning, organizing, and presenting real-world projects that build leadership, empathy, and social awareness.</p>
+            <p><strong>Our Mission:</strong></p>
+            <ul>
+              <li>To bridge communities through culture, and empower the next generation through education and service.</li>
+            </ul>
+            <p><strong>What We Do:</strong></p>
+            <ul>
+              <li>Promote Asian culture through Hanfu showcases, calligraphy demonstrations, traditional games, and cultural food tastings.</li>
+              <li>Support youth-led projects, including college campus visits, cultural exhibitions, and interactive public presentations.</li>
+              <li>Engage in city and community events, proudly sharing Asian cultural values at local festivals and education initiatives.</li>
+              <li>Serve the vulnerable (upcoming projects): visiting seniors, bringing care to the elderly, and supporting children in need through volunteer efforts.</li>
+            </ul>
+            <p>We believe that culture is rooted in tradition, and influence comes from action. Every child can become a cultural ambassador and a light for others. Together with families, schools, and communities, we aim to build a world that is compassionate, connected, and culturally enriched.</p>
+          `
+        },
+        members: {
+          title: "Members",
+          description: `
+            <p>Our team is made up of mothers and youth from Southern California, working together to share Asian culture and build leadership skills. Stay tuned for a detailed member directory!</p>
+          `
+        },
+        footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.",
+        menu: {
+          home: "Home",
+          about: "About",
+          members: "Members"
         }
-
-        function loadPage(page) {
-            const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = `<h2>${content[currentLanguage][page].title}</h2><p>${content[currentLanguage][page].description}</p>`;
+      },
+      chinese: {
+        home: {
+          title: "主页",
+          description: `
+            <p>欢迎来到亚太文化与教育协会 (APCEA)！我们是一个由家庭发起、青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长，并服务我们的社区。了解更多信息，请浏览我们的网站。</p>
+          `
+        },
+        about: {
+          title: "关于",
+          description: `
+            <p><strong>亚太文化与教育协会（Asia Pacific Culture and Education Association）</strong> 是一个由家庭发起、由青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长、服务社区大众。</p>
+            <p>我们的团队由一群生活在南加州的妈妈与孩子组成，通过代际合作，孩子们在真实的社会场景中亲自参与策划、组织与表达，培养领导力、文化自信和公益意识。</p>
+            <p><strong>我们的核心使命是：</strong></p>
+            <ul>
+              <li>以文化为桥梁，连结社区与世界；以教育为力量，赋能下一代成长。</li>
+            </ul>
+            <p><strong>我们在做什么：</strong></p>
+            <ul>
+              <li>推广亚洲文化：通过汉服表演、书法展示、节庆美食与传统游戏，在主流社会中传播多元文化之美。</li>
+              <li>青少年主导项目：从大学参访、文化节摊位，到专题策展与解说，鼓励青少年策划与执行。</li>
+              <li>参与城市与社区活动：定期参加地方政府或社区组织的文化节、教育活动，展现亚太文化特色。</li>
+              <li>公益服务项目（筹备中）：关怀长者、慰问孤独老人，为有需要的儿童提供陪伴与支持。</li>
+            </ul>
+            <p>我们相信，文化的根来自传统，影响力源于行动。每一位孩子都是文化传播的小使者，也是社会关怀的点灯人。我们愿与更多家庭、学校与社区携手，共同建设一个更有温度与多元理解的世界。</p>
+          `
+        },
+        members: {
+          title: "成员",
+          description: `
+            <p>我们的团队由南加州的妈妈与孩子们组成，共同协作，传承与推广多元的亚洲文化，并培养下一代的领导力与社会责任感。成员信息将陆续更新，敬请期待！</p>
+          `
+        },
+        footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。",
+        menu: {
+          home: "主页",
+          about: "关于",
+          members: "成员"
         }
+      }
+    };
 
-        let currentLanguage = 'english'; // Default language
+    // Current language default
+    let currentLanguage = 'english';
 
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            loadPage('home'); // Reload the home page in the selected language
-            
-            // Update menu options based on language
-            document.getElementById('menu-home').innerText = content[lang].menu.home;
-            document.getElementById('menu-about').innerText = content[lang].menu.about;
-            document.getElementById('menu-members').innerText = content[lang].menu.members;
+    // Toggle dropdown menu
+    function toggleMenu() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
 
-            // Update footer text
-            document.getElementById('footer-text').innerText = content[lang].footer;
-        }
+    // Load specific page content
+    function loadPage(page) {
+      const mainContent = document.getElementById('main-content');
+      mainContent.innerHTML = `
+        <h2>${content[currentLanguage][page].title}</h2>
+        ${content[currentLanguage][page].description}
+      `;
+      toggleMenu(); // close the menu after selecting
+    }
 
-        window.onload = function() {
-            loadPage('home'); // Load the home page by default
-            switchLanguage(currentLanguage); // Set the initial language
-        };
-    </script>
+    // Switch language
+    function switchLanguage(lang) {
+      currentLanguage = lang;
+      loadPage('home'); // Reload the home page in the selected language
+
+      // Update menu text
+      document.getElementById('menu-home').innerText = content[lang].menu.home;
+      document.getElementById('menu-about').innerText = content[lang].menu.about;
+      document.getElementById('menu-members').innerText = content[lang].menu.members;
+
+      // Update footer text
+      document.getElementById('footer-text').innerText = content[lang].footer;
+    }
+
+    // On window load, show home page and set initial language
+    window.onload = function() {
+      loadPage('home');
+      switchLanguage(currentLanguage);
+    };
+  </script>
 </head>
+
 <body>
-    <header>
-        <div class="company-name">APCEA</div>
-        <nav>
-            <button class="menu-button" onclick="toggleMenu()">Menu</button>
-            <div class="menu-content" id="dropdownMenu">
-                <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
-                <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
-                <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
-                <a href="#" onclick="switchLanguage('english')">English</a>
-                <a href="#" onclick="switchLanguage('chinese')">中文</a>
-            </div>
-        </nav>
-    </header>
-    <main id="main-content">
-        <h2>Home</h2>
-        <p>Welcome to the Home page!</p>
-    </main>
-    <footer>
-        <p id="footer-text">APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.</p>
-    </footer>
+  <!--
+    ------------------------------------------------------------
+    HEADER
+    ------------------------------------------------------------
+  -->
+  <header>
+    <div class="logo-container">
+      <!-- Replace path_to_logo.jpg with the actual path or filename of your logo -->
+      <img src="C:\Users\deity\OneDrive\Attachments\Desktop\工作文件\35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
+      <div class="company-name">APCEA</div>
+    </div>
+    <nav>
+      <button class="menu-button" onclick="toggleMenu()">Menu</button>
+      <div class="menu-content" id="dropdownMenu">
+        <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
+        <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
+        <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
+        <a href="#" onclick="switchLanguage('english')">English</a>
+        <a href="#" onclick="switchLanguage('chinese')">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <!--
+    ------------------------------------------------------------
+    MAIN CONTENT
+    ------------------------------------------------------------
+  -->
+  <main id="main-content">
+    <!-- Dynamic content will be injected here by JavaScript -->
+  </main>
+
+  <!--
+    ------------------------------------------------------------
+    FOOTER
+    ------------------------------------------------------------
+  -->
+  <footer>
+    <p id="footer-text">
+      APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.
+    </p>
+  </footer>
 </body>
 </html>
