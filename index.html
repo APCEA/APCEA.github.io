@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>APCEA</title>
   <style>
-    /* 
-      ------------------------------------------------------------
-      GLOBAL STYLES
-      ------------------------------------------------------------
-    */
+    /* ------------------------------------------------------------
+       GLOBAL STYLES
+    ------------------------------------------------------------ */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -23,16 +21,11 @@
       flex-direction: column;
       min-height: 100vh; 
     }
-    /* 
-      ------------------------------------------------------------
-      HEADER & NAVIGATION
-      ------------------------------------------------------------
-    */
+    /* ------------------------------------------------------------
+       HEADER & NAVIGATION
+    ------------------------------------------------------------ */
     header {
-      /* 
-        A multi-color gradient inspired by the logo (red, orange, yellow, green, blue).
-        You can adjust these colors to better match your logo.
-      */
+      /* Multi-color gradient inspired by the APCEA logo */
       background: linear-gradient(to right, #e53935, #ffb300, #ffeb3b, #43a047, #1e88e5);
       padding: 20px;
       display: flex;
@@ -91,13 +84,11 @@
     .menu-content a:hover {
       background-color: #f1f1f1;
     }
-    /*
-      ------------------------------------------------------------
-      MAIN CONTENT
-      ------------------------------------------------------------
-    */
+    /* ------------------------------------------------------------
+       MAIN CONTENT
+    ------------------------------------------------------------ */
     main {
-      flex: 1; /* Grow and take up available space */
+      flex: 1;
       padding: 40px;
       max-width: 1200px; 
       margin: 0 auto;
@@ -110,11 +101,9 @@
       margin-bottom: 20px;
       line-height: 1.6;
     }
-    /* 
-      ------------------------------------------------------------
-      FOOTER
-      ------------------------------------------------------------
-    */
+    /* ------------------------------------------------------------
+       FOOTER
+    ------------------------------------------------------------ */
     footer {
       background-color: #002540;
       padding: 20px;
@@ -124,11 +113,17 @@
       color: #fff;
       font-size: 1em;
     }
-    /*
-      ------------------------------------------------------------
-      RESPONSIVE DESIGN
-      ------------------------------------------------------------
-    */
+    footer a {
+      color: #ffeb3b;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* ------------------------------------------------------------
+       RESPONSIVE DESIGN
+    ------------------------------------------------------------ */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -143,11 +138,8 @@
   <script>
     /*
       ------------------------------------------------------------
-      CONTENT OBJECT
-      - Store your bilingual content here for easy switching.
-      - The "about" pages now contain the full text from your prompt.
-      ------------------------------------------------------------
-    */
+      BILINGUAL CONTENT
+    ------------------------------------------------------------ */
     const content = {
       english: {
         home: {
@@ -229,7 +221,7 @@
       }
     };
 
-    // Current language default
+    // Default language
     let currentLanguage = 'english';
 
     // Toggle dropdown menu
@@ -245,13 +237,13 @@
         <h2>${content[currentLanguage][page].title}</h2>
         ${content[currentLanguage][page].description}
       `;
-      toggleMenu(); // close the menu after selecting
+      toggleMenu(); // Close the menu after selection
     }
 
-    // Switch language
+    // Switch language and update content
     function switchLanguage(lang) {
       currentLanguage = lang;
-      loadPage('home'); // Reload the home page in the selected language
+      loadPage('home'); // Reload home page in selected language
 
       // Update menu text
       document.getElementById('menu-home').innerText = content[lang].menu.home;
@@ -260,26 +252,23 @@
 
       // Update footer text
       document.getElementById('footer-text').innerText = content[lang].footer;
+      // Re-add GitHub link after updating footer text
+      document.getElementById('footer-text').innerHTML += ' | <a href="https://github.com/yourusername/yourrepository" target="_blank">View on GitHub</a>';
     }
 
-    // On window load, show home page and set initial language
+    // Initialize page on load
     window.onload = function() {
       loadPage('home');
       switchLanguage(currentLanguage);
     };
   </script>
 </head>
-
 <body>
-  <!--
-    ------------------------------------------------------------
-    HEADER
-    ------------------------------------------------------------
-  -->
+  <!-- HEADER -->
   <header>
     <div class="logo-container">
-      <!-- Replace path_to_logo.jpg with the actual path or filename of your logo -->
-      <img src="C:\Users\deity\OneDrive\Attachments\Desktop\工作文件\35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
+      <!-- The logo image. Make sure this file is in the same folder as your HTML file, or update the path accordingly. -->
+      <img src="35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
       <div class="company-name">APCEA</div>
     </div>
     <nav>
@@ -294,23 +283,16 @@
     </nav>
   </header>
 
-  <!--
-    ------------------------------------------------------------
-    MAIN CONTENT
-    ------------------------------------------------------------
-  -->
+  <!-- MAIN CONTENT -->
   <main id="main-content">
-    <!-- Dynamic content will be injected here by JavaScript -->
+    <!-- Dynamic content will be injected here -->
   </main>
 
-  <!--
-    ------------------------------------------------------------
-    FOOTER
-    ------------------------------------------------------------
-  -->
+  <!-- FOOTER -->
   <footer>
     <p id="footer-text">
       APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.
+      | <a href="https://github.com/yourusername/yourrepository" target="_blank">View on GitHub</a>
     </p>
   </footer>
 </body>
