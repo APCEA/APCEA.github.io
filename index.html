@@ -6,14 +6,8 @@
   <title>APCEA</title>
   <style>
     /* Reset and Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      font-size: 18px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 18px; }
     body {
       font-family: 'Helvetica', 'Arial', sans-serif;
       line-height: 1.6;
@@ -23,6 +17,7 @@
       display: flex;
       flex-direction: column;
     }
+
     /* Header & Navigation */
     header {
       background-color: #002540;
@@ -31,22 +26,11 @@
       align-items: center;
       justify-content: space-between;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-container img {
-      height: 80px;
-      margin-right: 1rem;
-    }
-    .company-name {
-      font-family: Georgia, serif;
-      font-size: 2rem;
-      color: #fff;
-    }
-    nav {
-      position: relative;
-    }
+    .logo-container { display: flex; align-items: center; }
+    .logo-container img { height: 80px; margin-right: 1rem; }
+    .company-name { font-family: Georgia, serif; font-size: 2rem; color: #fff; }
+
+    nav { position: relative; }
     .menu-button {
       background: transparent;
       border: 2px solid #fff;
@@ -57,10 +41,8 @@
       border-radius: 4px;
       transition: background 0.3s, color 0.3s;
     }
-    .menu-button:hover {
-      background: #fff;
-      color: #002540;
-    }
+    .menu-button:hover { background: #fff; color: #002540; }
+
     .menu-content {
       display: none;
       position: absolute;
@@ -70,61 +52,36 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       z-index: 10;
+      min-width: 200px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
     .menu-content a {
       display: block;
       padding: 0.75rem 1rem;
       text-decoration: none;
       color: #002540;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       border-bottom: 1px solid #eee;
-      transition: background 0.3s;
+      transition: background 0.2s;
     }
-    .menu-content a:last-child {
-      border-bottom: none;
-    }
-    .menu-content a:hover {
-      background: #f0f0f0;
-    }
+    .menu-content a:last-child { border-bottom: none; }
+    .menu-content a:hover { background: #f0f0f0; }
+
     /* Main Content */
-    main {
-      flex: 1;
-      padding: 2rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    main h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #002540;
-    }
-    main p,
-    main li {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    main ul {
-      margin-left: 2rem;
-    }
+    main { flex: 1; padding: 2rem; max-width: 960px; margin: 0 auto; }
+    main h2 { font-size: 2rem; margin-bottom: 1rem; color: #002540; }
+    main h3 { font-size: 1.4rem; margin: 1rem 0 0.5rem; color: #083b63; }
+    main p, main li { font-size: 1.1rem; margin-bottom: 1rem; }
+    main ul { margin-left: 1.25rem; }
+
     /* Footer */
-    footer {
-      background: #002540;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    footer p {
-      color: #fff;
-      font-size: 1.2rem;
-    }
-    /* Responsive Design */
+    footer { background: #002540; padding: 1rem 2rem; text-align: center; }
+    footer p { color: #fff; font-size: 1.05rem; }
+
+    /* Responsive */
     @media (max-width:768px) {
-      header {
-         flex-direction: column;
-         align-items: flex-start;
-      }
-      nav {
-         margin-top: 1rem;
-      }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { margin-top: 1rem; }
     }
   </style>
   <script>
@@ -168,12 +125,27 @@
             <p>Proudly co-founded by Southern California students.</p>
           `
         },
+        news: {
+          title: "News",
+          description: `
+            <h3>APCEA Participates in the 2025 Temecula CultureFest, Earning Praise for Promoting Chinese Culture</h3>
+            <p><strong>Date:</strong> May 17, 2025</p>
+            <p>APCEA was invited to join the City of Temecula's annual CultureFest—a vibrant celebration that brought together communities to share cultures from around the world.</p>
+            <p>Our booth was jointly organized and operated by five youth students and five parents. From opening to close, it drew a steady stream of visitors and became one of the festival's highlights.</p>
+            <h3>Highlights from the APCEA Booth</h3>
+            <ul>
+              <li><strong>Chinese Calligraphy Experience:</strong> Visitors tried writing Chinese characters using traditional brush techniques.</li>
+              <li><strong>Origami Crafts:</strong> Families created paper lanterns and classic designs.</li>
+              <li><strong>Go (Weiqi) Demonstrations:</strong> Children from different backgrounds played this strategy game together.</li>
+              <li><strong>Handbag Painting:</strong> Custom-designed tote bags featuring artwork by our founder, Aileen, were especially popular.</li>
+              <li><strong>Face Painting:</strong> A big hit with younger attendees.</li>
+              <li><strong>Traditional Handicrafts:</strong> Paper cutting, fans, embroidery, qipao, and tea sets drew lots of admiration and photos.</li>
+            </ul>
+            <p>The event encouraged hands-on cultural exchange and gave our youth leaders a platform to grow—showing organization, communication, and teamwork. We thank the City of Temecula for providing this opportunity and look forward to more community events.</p>
+          `
+        },
         footer: "APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.",
-        menu: {
-          home: "Home",
-          about: "About",
-          members: "Members"
-        }
+        menu: { home: "Home", about: "About", members: "Members", news: "News" }
       },
       chinese: {
         home: {
@@ -191,18 +163,18 @@
             <p>以文化为桥梁，连结社区与世界；以教育为力量，赋能下一代成长。</p>
             <p><strong>我们在做什么：</strong></p>
             <ul>
-              <li>推广亚洲文化：通过汉服表演、书法展示、节庆美食与传统游戏，在主流社会中传播多元文化之美。</li>
-              <li>青少年主导项目：从大学参访、文化节摊位，到专题策展与解说，鼓励青少年策划与执行。</li>
+              <li>推广亚洲文化：通过汉服展示、书法体验、传统游戏与节庆美食，传播多元文化之美。</li>
+              <li>青少年主导项目：从大学参访、文化展览到公众互动讲解，鼓励青少年策划与执行。</li>
               <li>参与城市与社区活动：定期参加地方政府或社区组织的文化节、教育活动，展现亚太文化特色。</li>
               <li>公益服务项目（筹备中）：关怀长者、慰问孤独老人，为有需要的儿童提供陪伴与支持。</li>
             </ul>
-            <p>我们相信，文化的根来自传统，影响力源于行动。每一位孩子都是文化传播的小使者，也是社会关怀的点灯人。我们愿与更多家庭、学校与社区携手，共同建设一个更有温度与多元理解的世界。</p>
+            <p>我们相信，文化的根来自传统，影响力源于行动。每个孩子都是文化传播的小使者，也是社会关怀的点灯人。我们愿与更多家庭、学校与社区携手，共同建设一个更温暖与多元理解的世界。</p>
           `
         },
         members: {
           title: "成员",
           description: `
-            <p>我们的组织完全由学生主导。我们的学生共同创始人包括：</p>
+            <p>我们的组织完全由学生主导。学生共同创始人包括：</p>
             <ul>
               <li>Edric Chan</li>
               <li>Alexander Zhang</li>
@@ -210,15 +182,30 @@
               <li>Sixian Dong</li>
               <li>HanYa Yu</li>
             </ul>
-            <p>我们由南加州的学生共同创立，并得到父母的支持，共同传承和推广亚洲文化。</p>
+            <p>由南加州学生共同创立，并在家长支持下传承与推广亚洲文化。</p>
+          `
+        },
+        news: {
+          title: "新闻",
+          description: `
+            <h3>亚太文化教育协会成功参与 2025 年 Temecula 文化节，弘扬中华文化获好评</h3>
+            <p><strong>日期：</strong>2025 年 5 月 17 日</p>
+            <p>APCEA 受邀参加由 Temecula 市政府主办的年度文化盛会——Temecula CultureFest。本次活动汇聚多个族裔社区，展示世界各国的文化魅力，吸引了大量市民与游客。</p>
+            <p>我们的摊位由五位青少年学生与五位家长共同策划与运营，从开场起人流不断，成为文化节的亮点之一。</p>
+            <h3>摊位亮点</h3>
+            <ul>
+              <li><strong>中国书法体验：</strong>观众体验传统毛笔书写。</li>
+              <li><strong>折纸手作：</strong>家庭一起制作传统纸灯笼等图案。</li>
+              <li><strong>围棋互动：</strong>不同背景的孩子们共同体验这项经典策略游戏。</li>
+              <li><strong>手提袋绘画：</strong>由创始人 Aileen 设计的创意手袋特别受欢迎。</li>
+              <li><strong>脸部彩绘：</strong>深受小朋友喜爱。</li>
+              <li><strong>传统工艺展示：</strong>剪纸、折扇、刺绣、旗袍与茶具，吸引众多市民驻足欣赏与拍照。</li>
+            </ul>
+            <p>活动促进了跨文化交流，也为青少年提供了锻炼组织、沟通与团队合作的舞台。感谢 Temecula 市政府提供的平台，未来我们将继续积极参与社区活动，开展更多富有教育意义的文化推广项目。</p>
           `
         },
         footer: "APCEA 致力于促进文化交流，推动教育机会，培养跨文化理解。",
-        menu: {
-          home: "主页",
-          about: "关于",
-          members: "成员"
-        }
+        menu: { home: "主页", about: "关于", members: "成员", news: "新闻" }
       }
     };
 
@@ -232,15 +219,21 @@
     function loadPage(page) {
       const mainContent = document.getElementById('main-content');
       mainContent.innerHTML = `<h2>${content[currentLanguage][page].title}</h2>${content[currentLanguage][page].description}`;
-      toggleMenu();
+      // Close dropdown after selecting a page on mobile
+      const menu = document.getElementById("dropdownMenu");
+      if (menu.style.display === "block") menu.style.display = "none";
     }
 
     function switchLanguage(lang) {
       currentLanguage = lang;
-      loadPage('home');
+      // Reload current page if it exists in the new language; default to home
+      const currentPage = document.querySelector('main h2')?.textContent?.toLowerCase();
+      const fallback = 'home';
+      loadPage(fallback);
       document.getElementById('menu-home').innerText = content[lang].menu.home;
       document.getElementById('menu-about').innerText = content[lang].menu.about;
       document.getElementById('menu-members').innerText = content[lang].menu.members;
+      document.getElementById('menu-news').innerText = content[lang].menu.news;
       document.getElementById('footer-text').innerText = content[lang].footer;
     }
 
@@ -263,14 +256,17 @@
         <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
         <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
         <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
+        <a href="#" id="menu-news" onclick="loadPage('news')">News</a>
         <a href="#" onclick="switchLanguage('english')">English</a>
         <a href="#" onclick="switchLanguage('chinese')">中文</a>
       </div>
     </nav>
   </header>
+
   <main id="main-content">
     <!-- Dynamic content will be loaded here -->
   </main>
+
   <footer>
     <p id="footer-text">
       APCEA is dedicated to fostering cultural exchange, promoting educational opportunities, and cultivating cross-cultural understanding across the Pacific.
