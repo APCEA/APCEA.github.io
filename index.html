@@ -5,83 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>APCEA</title>
   <style>
-    /* Reset and Base Styles */
+    /* ===== Theme Variables ===== */
+    :root {
+      --navy: #002540;
+      --navy-600: #07324f;
+      --navy-700: #072a40;
+      --accent: #00a6b2; /* teal accent that fits the brand */
+      --accent-600: #008e98;
+      --bg: #ffffff;
+      --bg-soft: #f5f9fc;
+      --text: #27323f;
+      --muted: #6b7b8a;
+      --ring: rgba(0,166,178,0.35);
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* ===== Reset & Base ===== */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 18px; }
     body {
-      font-family: 'Helvetica', 'Arial', sans-serif;
-      line-height: 1.6;
-      background: #fff;
-      color: #333;
+      font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.7;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* Header & Navigation */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== Layout Helpers ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* ===== Header & Navigation ===== */
     header {
-      background-color: #002540;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-600) 100%);
+      padding: 0.85rem 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      backdrop-filter: saturate(140%) blur(6px);
     }
-    .logo-container { display: flex; align-items: center; }
-    .logo-container img { height: 80px; margin-right: 1rem; }
-    .company-name { font-family: Georgia, serif; font-size: 2rem; color: #fff; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    .logo-container { display: flex; align-items: center; gap: 0.85rem; }
+    .logo-container img { height: 64px; width: 64px; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+    .brand {
+      display: flex; flex-direction: column;
+    }
+    .company-name { font-family: ui-serif, Georgia, serif; font-size: 1.75rem; color: #fff; letter-spacing: 0.5px; }
+    .brand-sub { color: #dbe8f1; font-size: 0.9rem; margin-top: -2px; }
 
     nav { position: relative; }
     .menu-button {
       background: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
+      border: 1.8px solid #e6eef4;
+      color: #e6eef4;
+      padding: 0.5rem 0.9rem;
+      font-size: 1rem;
       cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s, color 0.3s;
+      border-radius: 999px;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.06s;
     }
-    .menu-button:hover { background: #fff; color: #002540; }
+    .menu-button:hover { background: #fff; color: var(--navy); border-color: #fff; }
+    .menu-button:active { transform: translateY(1px); }
+    .menu-button:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 
     .menu-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 3rem;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      z-index: 10;
-      min-width: 200px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display: none; position: absolute; right: 0; top: 2.8rem;
+      background: #fff; border: 1px solid #e7edf3; border-radius: 12px; z-index: 10; min-width: 220px; box-shadow: var(--shadow);
+      overflow: hidden; transform-origin: top right;
+      animation: dropdownIn 180ms ease forwards;
     }
+    @keyframes dropdownIn { from { opacity: 0; transform: scale(0.98) translateY(-6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
     .menu-content a {
-      display: block;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      color: #002540;
-      font-size: 1.05rem;
-      border-bottom: 1px solid #eee;
-      transition: background 0.2s;
+      display: block; padding: 0.8rem 1rem; text-decoration: none; color: var(--navy-700);
+      font-size: 1rem; border-bottom: 1px solid #f0f4f8; transition: background 0.2s;
     }
     .menu-content a:last-child { border-bottom: none; }
-    .menu-content a:hover { background: #f0f0f0; }
+    .menu-content a:hover { background: #f6fbff; }
+    .lang-row { display: flex; gap: 8px; padding: 0.7rem 0.9rem; }
+    .chip { flex: 1; text-align: center; padding: 0.5rem 0.75rem; border-radius: 999px; border: 1px solid #e7edf3; background: #f9fcff; color: var(--navy-700); }
+    .chip:hover { background: #eef7fb; }
 
-    /* Main Content */
-    main { flex: 1; padding: 2rem; max-width: 960px; margin: 0 auto; }
-    main h2 { font-size: 2rem; margin-bottom: 1rem; color: #002540; }
-    main h3 { font-size: 1.4rem; margin: 1rem 0 0.5rem; color: #083b63; }
-    main p, main li { font-size: 1.1rem; margin-bottom: 1rem; }
-    main ul { margin-left: 1.25rem; }
+    /* ===== Main Content ===== */
+    main { flex: 1; }
+    .hero {
+      background: radial-gradient(1200px 500px at 10% -10%, #bfefff33, transparent 60%),
+                  radial-gradient(900px 400px at 90% 0%, #7bdff233, transparent 60%),
+                  var(--bg-soft);
+      border-bottom: 1px solid #e7edf3;
+    }
+    .hero-inner { padding: 2.2rem 0; }
+    .hero h1 { color: var(--navy); font-size: 2rem; letter-spacing: 0.3px; }
+    .hero p { color: var(--muted); max-width: 60ch; margin-top: 0.5rem; }
 
-    /* Footer */
-    footer { background: #002540; padding: 1rem 2rem; text-align: center; }
-    footer p { color: #fff; font-size: 1.05rem; }
+    .page { padding: 2rem 0 3rem; }
+    .page-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+    .page-header h2 { color: var(--navy); font-size: 1.8rem; }
+    .page-header .underline { height: 4px; width: 48px; background: var(--accent); border-radius: 3px; }
 
-    /* Responsive */
-    @media (max-width:768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { margin-top: 1rem; }
+    .prose { background: #fff; border: 1px solid #e7edf3; border-radius: 14px; box-shadow: var(--shadow); padding: 1.25rem 1.25rem; }
+    .prose h3 { color: var(--navy-600); margin-top: 0.5rem; }
+    .prose p { margin: 0.6rem 0 1rem; }
+    .prose ul { margin: 0.2rem 0 1rem 1.2rem; }
+    .prose li { margin: 0.35rem 0; }
+
+    /* Info banner for News items */
+    .badge { display: inline-block; font-size: 0.82rem; background: #e6fbfd; color: var(--accent-600); border: 1px solid #cdeff3; border-radius: 999px; padding: 0.2rem 0.6rem; margin: 0.25rem 0 0.6rem; }
+
+    /* ===== Footer ===== */
+    footer { background: var(--navy); padding: 1.25rem 0; text-align: center; border-top: 1px solid #0e3a58; }
+    footer p { color: #e6eef4; font-size: 1.02rem; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .logo-container img { height: 56px; width: 56px; }
+      .company-name { font-size: 1.5rem; }
+      .hero-inner { padding: 1.6rem 0; }
+      .prose { padding: 1rem; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
     }
   </style>
   <script>
@@ -218,7 +267,15 @@
 
     function loadPage(page) {
       const mainContent = document.getElementById('main-content');
-      mainContent.innerHTML = `<h2>${content[currentLanguage][page].title}</h2>${content[currentLanguage][page].description}`;
+      const title = content[currentLanguage][page].title;
+      const description = content[currentLanguage][page].description;
+      mainContent.innerHTML = `<section class="container page"><div class="page-header"><h2>${title}</h2><div class="underline"></div></div><div class="prose">${description}</div></section>`;
+      const menu = document.getElementById('dropdownMenu');
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        menu.setAttribute('aria-hidden','true');
+      }
+    }</h2>${content[currentLanguage][page].description}`;
       // Close dropdown after selecting a page on mobile
       const menu = document.getElementById("dropdownMenu");
       if (menu.style.display === "block") menu.style.display = "none";
@@ -238,33 +295,62 @@
     }
 
     window.onload = function() {
+      // Build a hero for the home page behind the dynamic content
+      const main = document.getElementById('main-content');
+      const hero = document.createElement('section');
+      hero.className = 'hero';
+      hero.innerHTML = `<div class="container hero-inner"><h1>Welcome to APCEA</h1><p>Student-founded. Youth-driven. Building bridges through culture, education, and service.</p></div>`;
+      main.before(hero);
       loadPage('home');
       switchLanguage(currentLanguage);
+
+      // Close menu when clicking outside or pressing Esc
+      document.addEventListener('click', (e) => {
+        const menu = document.getElementById('dropdownMenu');
+        const btn = document.querySelector('.menu-button');
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const menu = document.getElementById('dropdownMenu');
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
     };
   </script>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <!-- Ensure your logo file (35fadaf145c6514653cfefc222d51b8.jpg) is in the same folder or adjust the path accordingly -->
-      <img src="35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
-      <div class="company-name">APCEA</div>
-    </div>
-    <nav>
-      <button class="menu-button" onclick="toggleMenu()">Menu</button>
-      <div class="menu-content" id="dropdownMenu">
-        <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
-        <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
-        <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
-        <a href="#" id="menu-news" onclick="loadPage('news')">News</a>
-        <a href="#" onclick="switchLanguage('english')">English</a>
-        <a href="#" onclick="switchLanguage('chinese')">中文</a>
+    <div class="container header-inner">
+      <div class="logo-container">
+        <img src="35fadaf145c6514653cfefc222d51b8.jpg" alt="APCEA Logo">
+        <div class="brand">
+          <div class="company-name">APCEA</div>
+          <div class="brand-sub">Asia-Pacific Culture & Education Association</div>
+        </div>
       </div>
-    </nav>
+      <nav>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <div class="menu-content" id="dropdownMenu" aria-hidden="true" role="menu">
+          <a href="#" id="menu-home" onclick="loadPage('home')">Home</a>
+          <a href="#" id="menu-about" onclick="loadPage('about')">About</a>
+          <a href="#" id="menu-members" onclick="loadPage('members')">Members</a>
+          <a href="#" id="menu-news" onclick="loadPage('news')">News</a>
+          <div class="lang-row">
+            <a href="#" class="chip" onclick="switchLanguage('english')">English</a>
+            <a href="#" class="chip" onclick="switchLanguage('chinese')">中文</a>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content">
-    <!-- Dynamic content will be loaded here -->
+    <!-- Injected by JS -->
   </main>
 
   <footer>
