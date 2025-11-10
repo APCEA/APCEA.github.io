@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APCEA – Asia-Pacific Culture & Education Association</title>
 <style>
@@ -31,22 +31,21 @@ header {
   padding: 0.85rem 0;
   position: sticky;
   top: 0;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   z-index: 100;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 .container {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: auto;
   padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
 }
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 .logo-container img {
   width: 60px;
@@ -59,82 +58,45 @@ header {
   line-height: 1.2;
 }
 .brand span:first-child {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 600;
 }
 .brand span:last-child {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #dceaf6;
 }
 
-/* ===== MENU ===== */
+/* ===== NAVIGATION ===== */
 nav {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.menu-button {
-  background: transparent;
-  border: 2px solid #e6eef4;
+nav a {
   color: #e6eef4;
-  padding: 0.55rem 1.2rem;
-  border-radius: 999px;
-  cursor: pointer;
+  text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: color 0.2s;
 }
-.menu-button:hover {
-  background: #ffffff;
-  color: var(--navy);
+nav a:hover {
+  color: #fff;
 }
-.menu-content {
-  display: none;
-  position: absolute;
-  right: -20px; /* ✅ fixed alignment */
-  top: calc(100% + 8px);
+.lang-switch {
   background: #fff;
-  border: 1px solid #e7edf3;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  min-width: 220px;
-  overflow: hidden;
-  z-index: 999;
-}
-.menu-content a {
-  display: block;
-  padding: 0.75rem 1rem;
   color: var(--navy);
-  text-decoration: none;
-  border-bottom: 1px solid #f1f5f8;
-  font-size: 0.95rem;
-}
-.menu-content a:hover {
-  background: #f7fbff;
-}
-.menu-content a:last-child {
-  border-bottom: none;
-}
-.lang-row {
-  display: flex;
-  gap: 8px;
-  padding: 0.7rem;
-  border-top: 1px solid #f1f5f8;
-}
-.chip {
-  flex: 1;
-  text-align: center;
-  padding: 0.45rem 0;
+  border: none;
   border-radius: 999px;
-  background: #f9fcff;
-  border: 1px solid #e7edf3;
-  color: var(--navy);
+  padding: 0.4rem 0.9rem;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
-.chip:hover {
-  background: #eef7fb;
+.lang-switch:hover {
+  background: #e0f7fa;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* ===== MAIN ===== */
 .page {
   padding: 2rem 0;
 }
@@ -174,16 +136,16 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .menu-content {
-    right: 0;
-    min-width: 200px;
+  nav {
+    flex-direction: column;
+    background: var(--navy);
   }
-  .menu-button {
-    font-size: 1rem;
+  nav a {
+    display: block;
+    padding: 0.5rem;
   }
 }
 </style>
-
 <script>
 const content = {
 english:{
@@ -238,38 +200,78 @@ description:`
 `
 },
 footer:"APCEA fosters cultural exchange, education, and community understanding."
+},
+
+chinese:{
+menu:{home:"主页",about:"关于",members:"成员",events:"活动与相册"},
+home:{
+title:"主页",
+description:`
+<p>欢迎来到<strong>亚太文化与教育协会（APCEA）</strong>！我们是一个由学生创立、青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长、服务社区。</p>
+<h3>我们的使命</h3>
+<p>以文化为桥梁，连结社区与世界；以教育为力量，赋能下一代成长。</p>
+<h3>近期活动亮点</h3>
+<ul>
+<li>📚 <strong>社区教育研讨会</strong> – 推广教育与文化交流。</li>
+<li>🎭 <strong>万圣节文化融合项目</strong> – 通过节庆活动促进跨文化理解。</li>
+<li>🌸 <strong>Temecula 文化节</strong> – 展示中国书法与传统艺术。</li>
+</ul>
+<div style="text-align:center;margin-top:1rem;">
+  <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:70%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
+  <p style="color:#6b7b8a;font-size:0.95rem;">APCEA 成员在 Temecula 文化节 2025 合影</p>
+</div>
+`
+},
+about:{title:"关于",description:`<p><strong>亚太文化与教育协会（APCEA）</strong> 是一个由学生发起、青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长、服务社区大众。我们通过文化展示、志愿活动与教育项目，促进跨文化理解与青年领导力发展。</p>`},
+members:{title:"成员",description:`<p>协会由以下学生共同创立：</p><ul><li>Edric Chan</li><li>Alexander Zhang</li><li>Yuelin Qu</li><li>Sixian Dong</li><li>HanYa Yu</li></ul>`},
+events:{
+title:"活动与相册",
+description:`
+<h3>Temecula 文化节 2025</h3>
+<p><strong>日期：</strong>2025 年 5 月 17 日</p>
+<p>协会成员组织书法、围棋与艺术手作活动，让社区家庭体验中国传统文化。</p>
+<div class="grid-gallery">
+<img src="38676d8d77d96caf67f70806378a07a.jpg">
+<img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
+<img src="b4710849d37ebd78dc0bd823fae5bda.jpg">
+<img src="386517c091df32b77358d9b1a86269c.jpg">
+</div>
+
+<h3>社区教育研讨会</h3>
+<p><strong>日期：</strong>2025 年 9 月 28 日</p>
+<p>亚太文化与教育协会协同亚美教育与学区英语学习者咨询委员会（DELAC）在本地图书馆举办教育活动。学生介绍非营利宗旨，促进青少年教育与中美文化交流。</p>
+<p>通过这次活动，学生提升沟通能力，让更多社区家庭了解并支持协会使命。</p>
+
+<h3>万圣节文化融合项目</h3>
+<p><strong>日期：</strong>2025 年 10 月</p>
+<p>协会成员积极参与万圣节社区庆典，通过游行、手作与文化交流，促进邻里理解与融合。</p>
+<ul>
+<li>增强社区凝聚力与文化理解。</li>
+<li>帮助新移民家庭更好地融入美国文化。</li>
+<li>通过节庆活动培养青少年领导力。</li>
+</ul>
+<p><em>万圣节不仅是节日，更是社区文化融合的机会。</em></p>
+`
+},
+footer:"APCEA 致力于促进文化交流与教育发展。"
 }
 };
 
 let currentLanguage='english';
-function toggleMenu(){
-  const menu=document.getElementById("dropdownMenu");
-  menu.style.display=(menu.style.display==="block")?"none":"block";
-}
 function loadPage(page){
   const main=document.getElementById("main-content");
   const {title,description}=content[currentLanguage][page];
   main.innerHTML=`<section class='container page'><h2 style="color:var(--navy);font-size:1.8rem;margin-bottom:1rem;">${title}</h2><div class='prose'>${description}</div></section>`;
-  document.getElementById("dropdownMenu").style.display="none";
 }
 function switchLanguage(lang){
   currentLanguage=lang;
   ["home","about","members","events"].forEach(id=>{
-    document.getElementById(`menu-${id}`).innerText=content[lang].menu[id];
+    document.getElementById(`nav-${id}`).innerText=content[lang].menu[id];
   });
   document.getElementById('footer-text').innerText=content[lang].footer;
   loadPage('home');
 }
-window.onload=function(){
-  loadPage('home');
-  document.addEventListener("click", (e)=>{
-    const menu=document.getElementById("dropdownMenu");
-    const btn=document.querySelector(".menu-button");
-    if(menu.style.display==="block" && !menu.contains(e.target) && !btn.contains(e.target)){
-      menu.style.display="none";
-    }
-  });
-};
+window.onload=function(){loadPage('home');};
 </script>
 </head>
 
@@ -284,17 +286,11 @@ window.onload=function(){
       </div>
     </div>
     <nav>
-      <button class="menu-button" onclick="toggleMenu()">Menu</button>
-      <div class="menu-content" id="dropdownMenu">
-        <a href="#" id="menu-home" onclick="loadPage('home');return false;">Home</a>
-        <a href="#" id="menu-about" onclick="loadPage('about');return false;">About</a>
-        <a href="#" id="menu-members" onclick="loadPage('members');return false;">Members</a>
-        <a href="#" id="menu-events" onclick="loadPage('events');return false;">Events & Gallery</a>
-        <div class="lang-row">
-          <div class="chip" onclick="switchLanguage('english')">English</div>
-          <div class="chip" onclick="switchLanguage('chinese')">中文</div>
-        </div>
-      </div>
+      <a href="#" id="nav-home" onclick="loadPage('home');return false;">Home</a>
+      <a href="#" id="nav-about" onclick="loadPage('about');return false;">About</a>
+      <a href="#" id="nav-members" onclick="loadPage('members');return false;">Members</a>
+      <a href="#" id="nav-events" onclick="loadPage('events');return false;">Events & Gallery</a>
+      <button class="lang-switch" onclick="switchLanguage(currentLanguage==='english'?'chinese':'english')">中文 / EN</button>
     </nav>
   </div>
 </header>
