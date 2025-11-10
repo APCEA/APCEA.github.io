@@ -12,7 +12,6 @@
   --bg: #ffffff;
   --bg-soft: #f5f9fc;
   --text: #27323f;
-  --muted: #6b7b8a;
   --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 body {
@@ -96,20 +95,32 @@ nav a:hover {
   background: #e0f7fa;
 }
 
-/* ===== MAIN ===== */
+/* ===== MAIN PAGE CONTENT ===== */
 .page {
-  padding: 2rem 0;
+  padding: 2.5rem 0;
+}
+.page .content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.page h2 {
+  color: var(--navy);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left; /* ✅ top-left alignment */
 }
 .prose {
   background: #fff;
   border: 1px solid #e7edf3;
   border-radius: 14px;
   box-shadow: var(--shadow);
-  padding: 1.25rem;
+  padding: 2rem;
+  text-align: left; /* ✅ align text left */
 }
 .prose h3 {
   font-size: 1.25rem;
   color: var(--navy);
+  margin-top: 1.25rem;
 }
 .prose p, .prose li {
   font-size: 1rem;
@@ -136,16 +147,13 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    background: var(--navy);
-  }
-  nav a {
-    display: block;
-    padding: 0.5rem;
-  }
+  .container { flex-direction: column; align-items: flex-start; }
+  nav { flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+  nav a { display: inline-block; }
+  .prose { padding: 1.2rem; }
 }
 </style>
+
 <script>
 const content = {
 english:{
@@ -163,7 +171,7 @@ description:`
 <li>🌸 <strong>Temecula CultureFest</strong> – Sharing Chinese traditions through art, calligraphy, and games.</li>
 </ul>
 <div style="text-align:center;margin-top:1rem;">
-  <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:70%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
+  <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:80%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
   <p style="color:#6b7b8a;font-size:0.95rem;">APCEA members at Temecula CultureFest 2025</p>
 </div>
 `
@@ -185,12 +193,12 @@ description:`
 
 <h3>Community Educational Workshop</h3>
 <p><strong>Date:</strong> September 28, 2025</p>
-<p>APCEA, together with Yamei Academy of Excellence and the District English Learner Advisory Committee (DELAC), hosted a community educational workshop at the local library. Students introduced our mission to promote youth education and cultural exchange, sharing highlights from recent projects.</p>
+<p>APCEA, together with Yamei Academy of Excellence and DELAC, hosted a community educational workshop at the local library. Students introduced our mission to promote youth education and cultural exchange, sharing highlights from recent projects.</p>
 <p>Through this experience, our youth enhanced communication and presentation skills, helping more families understand and support APCEA’s goals.</p>
 
 <h3>Halloween Cultural Integration Project</h3>
 <p><strong>Date:</strong> October 2025</p>
-<p>This event promoted cross-cultural understanding through Halloween community activities such as parades, trick-or-treat safety routes, and cross-cultural food exchanges.</p>
+<p>This event promoted cross-cultural understanding through Halloween community activities such as parades, trick-or-treat safety routes, and cultural food exchanges.</p>
 <ul>
 <li>Strengthened neighborly bonds and cultural inclusion.</li>
 <li>Encouraged immigrant families to share traditions.</li>
@@ -201,7 +209,6 @@ description:`
 },
 footer:"APCEA fosters cultural exchange, education, and community understanding."
 },
-
 chinese:{
 menu:{home:"主页",about:"关于",members:"成员",events:"活动与相册"},
 home:{
@@ -217,7 +224,7 @@ description:`
 <li>🌸 <strong>Temecula 文化节</strong> – 展示中国书法与传统艺术。</li>
 </ul>
 <div style="text-align:center;margin-top:1rem;">
-  <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:70%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
+  <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:80%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
   <p style="color:#6b7b8a;font-size:0.95rem;">APCEA 成员在 Temecula 文化节 2025 合影</p>
 </div>
 `
@@ -239,8 +246,7 @@ description:`
 
 <h3>社区教育研讨会</h3>
 <p><strong>日期：</strong>2025 年 9 月 28 日</p>
-<p>亚太文化与教育协会协同亚美教育与学区英语学习者咨询委员会（DELAC）在本地图书馆举办教育活动。学生介绍非营利宗旨，促进青少年教育与中美文化交流。</p>
-<p>通过这次活动，学生提升沟通能力，让更多社区家庭了解并支持协会使命。</p>
+<p>亚太文化与教育协会协同亚美教育与 DELAC 在图书馆举办教育活动。学生介绍非营利宗旨，促进青少年教育与中美文化交流。</p>
 
 <h3>万圣节文化融合项目</h3>
 <p><strong>日期：</strong>2025 年 10 月</p>
@@ -261,7 +267,7 @@ let currentLanguage='english';
 function loadPage(page){
   const main=document.getElementById("main-content");
   const {title,description}=content[currentLanguage][page];
-  main.innerHTML=`<section class='container page'><h2 style="color:var(--navy);font-size:1.8rem;margin-bottom:1rem;">${title}</h2><div class='prose'>${description}</div></section>`;
+  main.innerHTML=`<section class='page'><div class='content-wrapper'><h2>${title}</h2><div class='prose'>${description}</div></div></section>`;
 }
 function switchLanguage(lang){
   currentLanguage=lang;
