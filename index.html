@@ -33,12 +33,18 @@ nav a:hover { color:#fff; }
 .page h2 { color:var(--navy); font-size:2rem; margin-bottom:1rem; text-align:left; }
 .prose { background:#fff; border:1px solid #e7edf3; border-radius:14px; box-shadow:var(--shadow); padding:2rem; text-align:left; }
 .prose h3 { font-size:1.25rem; color:var(--navy); margin-top:1.5rem; }
+.prose p, .prose li { font-size:1rem; }
+.prose ul { margin-left:1.25rem; }
 .grid-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin:1.5rem 0; }
 .grid-gallery img { width:100%; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.15); }
 footer { background:var(--navy); color:#e6eef4; text-align:center; padding:1.2rem 0; margin-top:2rem; font-size:0.95rem; }
 
 /* RESPONSIVE */
-@media(max-width:768px){.container{flex-direction:column;align-items:flex-start;}nav{flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;}.prose{padding:1.2rem;}}
+@media(max-width:768px){
+  .container{flex-direction:column;align-items:flex-start;}
+  nav{flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;}
+  .prose{padding:1.2rem;}
+}
 </style>
 
 <script>
@@ -57,38 +63,80 @@ description:`
 </div>
 `
 },
-about:{title:"About",description:`<p><strong>The Asia-Pacific Culture and Education Association (APCEA)</strong> is a youth-driven nonprofit that fosters Asian culture, education, and community unity. Founded by students in Southern California, APCEA encourages young leaders to organize cultural showcases, service events, and educational programs that inspire cross-cultural understanding.</p>`},
-members:{title:"Members",description:`<p>APCEA is proudly led by student co-founders:</p><ul><li>Edric Chan</li><li>Alexander Zhang</li><li>Yuelin Qu</li><li>Sixian Dong</li><li>HanYa Yu</li></ul>`},
+about:{
+title:"About",
+description:`<p><strong>The Asia-Pacific Culture and Education Association (APCEA)</strong> is a youth-driven nonprofit that fosters Asian culture, education, and community unity. Founded by students in Southern California, APCEA encourages young leaders to organize cultural showcases, service events, and educational programs that inspire cross-cultural understanding.</p>`
+},
+members:{
+title:"Members",
+description:`<p>APCEA is proudly led by student co-founders:</p>
+<ul>
+  <li>Edric Chan</li>
+  <li>Alexander Zhang</li>
+  <li>Yuelin Qu</li>
+  <li>Sixian Dong</li>
+  <li>HanYa Yu</li>
+</ul>`
+},
 
 events:{
 title:"Events & Gallery",
 description:`
+<p><strong>APCEA’s recent cultural and community events bring our mission to life.</strong> From city-wide festivals to focused workshops and neighborhood celebrations, our youth leaders connect families, cultures, and communities.</p>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
+
 <h3>Temecula CultureFest 2025 – Promoting Chinese Culture</h3>
 <p><strong>Date:</strong> May 17, 2025</p>
-<p>APCEA was invited to join Temecula’s annual <em>CultureFest</em>, celebrating global diversity. Our booth, co-organized by five students and five parents, became one of the most popular spots at the event.</p>
-<p>Visitors experienced Chinese culture through calligraphy, origami, Go (Weiqi), and traditional crafts. Handmade tote bags designed by our founder, Aileen, and face painting were especially popular with families.</p>
-<p><em>“Seeing children introduce and teach their culture with pride was truly inspiring.”</em></p>
+<p>On May 17, 2025, the Asia-Pacific Culture and Education Association (APCEA) was invited to participate in the Temecula CultureFest, an annual celebration hosted by the City of Temecula. The event brought together diverse communities to share cultures from around the world and attracted many residents and visitors.</p>
+<p>APCEA’s booth was jointly planned and operated by five youth students and five parents. From the moment it opened, the booth drew a steady stream of visitors and became one of the festival’s highlights.</p>
+<p>Our booth offered a rich and hands-on experience of Chinese culture, including:</p>
+<ul>
+  <li><strong>Chinese Calligraphy Experience:</strong> Visitors tried writing Chinese characters using traditional brush techniques.</li>
+  <li><strong>Origami Crafts:</strong> Children and families created classic designs such as paper lanterns.</li>
+  <li><strong>Go (Weiqi) Demonstrations:</strong> Children from different backgrounds sat together and played this thoughtful strategy game.</li>
+  <li><strong>Handbag Painting:</strong> Custom-designed tote bags featuring original artwork by our founder, Aileen, were especially popular.</li>
+  <li><strong>Face Painting:</strong> A favorite attraction among younger visitors.</li>
+  <li><strong>Traditional Handicrafts Display:</strong> Paper cutting, fans, embroidery, qipao (traditional dresses), and tea sets that drew admiration, questions, and photos.</li>
+</ul>
+<p>Through interactive activities, local families gained a deeper understanding of the artistic beauty and cultural depth of Chinese heritage. One community member remarked that seeing so many children confidently introducing their culture gave them “hope for cultural inheritance.”</p>
+<p>For our student volunteers, the event was also a powerful learning experience. They practiced organization, communication, and teamwork in a real public setting. APCEA is grateful to the City of Temecula for providing such a meaningful platform, and we look forward to continuing to share Chinese culture through future community events.</p>
+
 <div class="grid-gallery">
-<img src="38676d8d77d96caf67f70806378a07a.jpg">
-<img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
-<img src="b4710849d37ebd78dc0bd823fae5bda.jpg">
-<img src="386517c091df32b77358d9b1a86269c.jpg">
+  <img src="38676d8d77d96caf67f70806378a07a.jpg">
+  <img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
+  <img src="b4710849d37ebd78dc0bd823fae5bda.jpg">
+  <img src="386517c091df32b77358d9b1a86269c.jpg">
 </div>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
 
 <h3>Community Educational Workshop</h3>
 <p><strong>Date:</strong> September 28, 2025</p>
-<p>In partnership with Yamei Academy of Excellence and the District English Learner Advisory Committee (DELAC), APCEA hosted a community workshop at a local library. Members presented our mission to promote youth education and cultural exchange between China and the United States.</p>
-<p>This event helped students strengthen public speaking skills while introducing local families to APCEA’s educational and cultural initiatives.</p>
+<p>On September 28, 2025, APCEA partnered with Yamei Academy of Excellence and the District English Learner Advisory Committee (DELAC) to host a community educational workshop at a local library.</p>
+<p>During the workshop, our student members introduced the mission of APCEA: to promote youth education and support cultural exchange between China and the United States. They also shared recent community projects and answered questions from parents and students.</p>
+<p>Through this experience, students:</p>
+<ul>
+  <li>Deepened their public speaking and presentation skills.</li>
+  <li>Helped more families learn about educational opportunities and community resources.</li>
+  <li>Built bridges between Asian families and the wider community.</li>
+</ul>
+<p>The workshop demonstrated that when young people take the lead, they can encourage more families to participate, understand, and support the mission of the Asia-Pacific Culture and Education Association.</p>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
 
 <h3>Halloween Cultural Integration Project</h3>
 <p><strong>Date:</strong> October 2025</p>
-<p>Through Halloween community events — including parades, trick-or-treat routes, and cross-cultural food fairs — APCEA members explored how festivals build understanding and unity.</p>
+<p>Our Halloween Cultural Integration Project explored how a traditional American festival can become a bridge for cross-cultural understanding and community cohesion.</p>
+<p>Halloween has its roots in the Celtic festival of Samhain and later merged with Christian traditions. In the United States, it has become a nationwide celebration featuring costumes, decorations, trick-or-treating, and community gatherings. For APCEA members, Halloween became a living classroom for cultural integration.</p>
+<p>During local community celebrations, our youth and families participated in activities such as neighborhood trick-or-treating, themed decorations, and community events. At the same time, they shared aspects of their own cultural backgrounds and discussed similar festivals in other countries.</p>
+<p>Through this project, members:</p>
 <ul>
-<li>Promoted inclusion of immigrant families in American traditions.</li>
-<li>Encouraged sharing of multicultural experiences.</li>
-<li>Deepened community cohesion through fun cultural participation.</li>
+  <li>Experienced firsthand how American communities use festivals to strengthen neighborly bonds and a sense of belonging.</li>
+  <li>Helped new immigrant families better understand local customs and feel more comfortable participating.</li>
+  <li>Reflected on how inclusive, well-designed activities can support multicultural understanding and respect.</li>
 </ul>
-<p><em>Halloween became a celebration of friendship and shared identity across cultures.</em></p>
+<p>Halloween, in this context, was not just about candy and costumes; it became an opportunity for APCEA youth to practice leadership, empathy, and cultural sharing within the community.</p>
 `
 },
 
@@ -105,40 +153,84 @@ description:`
 <p>以文化为桥梁，连结社区与世界；以教育为力量，赋能下一代成长。</p>
 <div style="text-align:center;margin-top:1rem;">
   <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:80%;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.15);">
-  <p style="color:#6b7b8a;font-size:0.95rem;">APCEA 成员在 Temecula 文化节 2025 合影</p>
+  <p style="color:#6b7b8a;font-size:0.95rem;">APCEA 成员在 2025 年 Temecula 文化节合影</p>
 </div>
 `
 },
-about:{title:"关于",description:`<p><strong>亚太文化与教育协会（APCEA）</strong> 是一个由学生发起、青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长、服务社区大众。我们通过文化展示、志愿活动与教育项目，促进跨文化理解与青年领导力发展。</p>`},
-members:{title:"成员",description:`<p>协会由以下学生共同创立：</p><ul><li>Edric Chan</li><li>Alexander Zhang</li><li>Yuelin Qu</li><li>Sixian Dong</li><li>HanYa Yu</li></ul>`},
+about:{
+title:"关于",
+description:`<p><strong>亚太文化与教育协会（APCEA）</strong> 是一个由学生发起、青少年主导的非营利组织，致力于推广亚洲文化、促进教育成长、服务社区大众。我们通过文化展示、志愿服务与教育项目，促进跨文化理解与青年领导力发展。</p>`
+},
+members:{
+title:"成员",
+description:`<p>协会由以下学生共同创立：</p>
+<ul>
+  <li>Edric Chan</li>
+  <li>Alexander Zhang</li>
+  <li>Yuelin Qu</li>
+  <li>Sixian Dong</li>
+  <li>HanYa Yu</li>
+</ul>`
+},
 
 events:{
 title:"活动与相册",
 description:`
-<h3>Temecula 文化节 2025 – 弘扬中华文化</h3>
+<p><strong>APCEA 通过多场社区与文化活动，将协会的使命真正落到实处。</strong> 从城市文化节到教育讲座，再到社区节庆，我们的青少年成员在实践中学习，也在行动中服务。</p>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
+
+<h3>2025 年 Temecula 文化节 —— 弘扬中华文化</h3>
 <p><strong>日期：</strong>2025 年 5 月 17 日</p>
-<p>亚太文化教育协会受邀参加 Temecula 市政府主办的年度文化盛会。协会由五位青少年与五位家长共同策划摊位，展示书法、折纸、围棋、工艺品、脸绘与创意手袋设计，吸引众多家庭参与。</p>
-<p><em>“看到孩子们主动介绍文化，真的很感动。”</em></p>
+<p>2025 年 5 月 17 日，亚太文化教育协会（APCEA）受邀参加由 Temecula 市政府主办的年度文化盛会 Temecula CultureFest。活动汇聚多个族裔社区，通过舞台表演与摊位互动展示世界各地的文化，吸引了大量市民和游客。</p>
+<p>本次活动中，APCEA 由五位青少年学生与五位家长共同策划并运营中华文化摊位。从早上开放开始，摊位前人流不断，成为文化节的亮点之一。</p>
+<p>摊位内容丰富多样，包括：</p>
+<ul>
+  <li><strong>中国书法体验：</strong> 观众亲手写汉字，体验毛笔书写的魅力。</li>
+  <li><strong>折纸手作：</strong> 孩子与家长一起折纸灯笼等传统图案。</li>
+  <li><strong>围棋互动：</strong> 不同背景的儿童围坐一起，下这项古老的策略游戏。</li>
+  <li><strong>手提袋绘画：</strong> 由创始人 Aileen 设计图案的环保袋备受欢迎。</li>
+  <li><strong>脸部彩绘：</strong> 深受小朋友喜爱。</li>
+  <li><strong>传统工艺展示：</strong> 剪纸、折扇、刺绣、旗袍与茶具等，吸引许多民众驻足欣赏与合影。</li>
+</ul>
+<p>许多参与者表示，通过亲手体验和与学生交流，更深入地感受到中华文化的艺术魅力与精神内涵。一位市民感慨说，看见孩子们主动介绍自己的文化，“让人看到了文化传承的希望”。</p>
+<p>对协会青少年而言，这不仅是一次展示机会，更是锻炼组织能力、沟通能力和团队合作的宝贵经历。APCEA 也由衷感谢 Temecula 市政府搭建的平台，让我们得以在社区中弘扬中华文化，促进跨文化交流。</p>
+
 <div class="grid-gallery">
-<img src="38676d8d77d96caf67f70806378a07a.jpg">
-<img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
-<img src="b4710849d37ebd78dc0bd823fae5bda.jpg">
-<img src="386517c091df32b77358d9b1a86269c.jpg">
+  <img src="38676d8d77d96caf67f70806378a07a.jpg">
+  <img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
+  <img src="b4710849d37ebd78dc0bd823fae5bda.jpg">
+  <img src="386517c091df32b77358d9b1a86269c.jpg">
 </div>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
 
 <h3>社区教育研讨会</h3>
 <p><strong>日期：</strong>2025 年 9 月 28 日</p>
-<p>APCEA 协同亚美教育与 DELAC 在图书馆举办社区教育活动，介绍协会宗旨，推广青少年教育与中美文化交流。学生锻炼了表达与沟通能力，并让更多家庭了解协会使命。</p>
+<p>2025 年 9 月 28 日，亚太文化与教育协会协同亚美教育（Yamei Academy of Excellence）与学区英语学习者咨询委员会（DELAC）在本地图书馆举办了一场教育升学主题的社区活动。</p>
+<p>在活动中，协会青少年成员热情地向来访家庭介绍 APCEA 的宗旨——促进青少年教育发展与中美文化交流，并展示了近期开展的公益与文化项目。</p>
+<p>通过这次研讨会，学生们：</p>
+<ul>
+  <li>锻炼了公开演讲与表达能力；</li>
+  <li>帮助更多亚裔家庭了解教育资源与升学信息；</li>
+  <li>带动更多社区家庭关注并支持 APCEA 的非营利使命。</li>
+</ul>
+<p>活动也进一步促进了亚裔家庭与本地社区之间的沟通与信任。</p>
+
+<hr style="margin:1.5rem 0;border:none;border-top:1px solid #e5e9f0;">
 
 <h3>万圣节文化融合项目</h3>
 <p><strong>日期：</strong>2025 年 10 月</p>
-<p>通过万圣节游行、讨糖路线与跨文化美食会，协会成员展示节庆如何促进社区融合与多元共融。</p>
+<p>万圣节起源于凯尔特人的萨温节（Samhain），后与基督教诸圣节融合，逐渐发展为美国广泛庆祝的节日。如今的万圣节融合了娱乐、创意与社区互动，是社区文化的重要组成部分。</p>
+<p>在“万圣节文化融合项目”中，APCEA 成员通过参与社区游行、Trick or Treat 安全路线、主题装饰与跨文化美食等活动，观察并体验美国社区如何利用节庆增强邻里关系和归属感。</p>
+<p>同时，学生也向其他居民介绍本国类似节日，分享文化差异与共同点，在交流中建立理解与友谊。</p>
+<p>通过该项目，协会成员：</p>
 <ul>
-<li>促进移民家庭融入社区。</li>
-<li>鼓励跨文化交流与友谊。</li>
-<li>增强社区凝聚力与包容性。</li>
+  <li>帮助新移民家庭更好地了解和参与美国节日文化；</li>
+  <li>在真实情境中学习跨文化沟通与尊重；</li>
+  <li>思考如何通过活动设计，让更多不同文化背景的居民都感到被接纳。</li>
 </ul>
-<p><em>万圣节成为不同文化相互理解的欢乐平台。</em></p>
+<p>对 APCEA 而言，万圣节不仅是一个节日，更是促进社区文化融合的良好机会。孩子们在欢乐的氛围中学习、分享，也在行动中为建设更温暖、多元的社区贡献一份力量。</p>
 `
 },
 
