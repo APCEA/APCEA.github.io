@@ -215,6 +215,20 @@ header {
 }
 .gallery img:hover { transform: scale(1.03) rotate(-1deg); box-shadow: var(--shadow-hover); }
 
+/* Custom Workshop Row for 2 photos */
+.workshop-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.workshop-row img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
 /* --- 5. RESPONSIVE --- */
 @media (max-width: 800px) {
   .menu-links {
@@ -234,6 +248,8 @@ header {
   .mobile-toggle { display: block; }
   .lang-btn { margin: 0.5rem auto; width: 100%; }
   .card { padding: 1.5rem; }
+  .workshop-row { grid-template-columns: 1fr; }
+  .workshop-row img { height: 250px; }
 }
 </style>
 </head>
@@ -274,17 +290,15 @@ const content = {
         <div class="card" style="text-align:center;">
           <span class="tag">Welcome</span>
           <h2>Home</h2>
-          <p>Welcome to <strong>APCEA</strong> — a student-founded nonprofit organization promoting Asian culture and education across Southern California.</p>
-          
+          <p>Welcome to <strong>APCEA</strong> — a student-founded nonprofit promoting Asian culture and educational excellence in Southern California.</p>
           <div style="margin:2rem 0;">
              <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:100%; box-shadow:var(--shadow-hover);">
              <p style="font-size:0.85rem; opacity:0.7; margin-top:0.5rem;">APCEA members at Temecula CultureFest 2025</p>
           </div>
         </div>
-        
         <div class="card">
           <h3>Our Mission</h3>
-          <p>To bridge cultures through education and service, empowering youth to become leaders and cultural ambassadors.</p>
+          <p>To bridge cultural gaps through interactive education and community service, empowering youth to become confident leaders and cultural ambassadors.</p>
         </div>
       `
     },
@@ -293,7 +307,7 @@ const content = {
         <div class="card">
           <span class="tag">Overview</span>
           <h2>About</h2>
-          <p><strong>APCEA</strong> is a youth-driven nonprofit that fosters Asian culture and community unity through showcases, service, and educational programs.</p>
+          <p><strong>The Asia-Pacific Culture and Education Association (APCEA)</strong> is a youth-driven nonprofit. We celebrate diversity and foster community unity through cultural showcases and academic workshops.</p>
         </div>
       `
     },
@@ -302,15 +316,11 @@ const content = {
         <div class="card">
           <span class="tag">Leadership</span>
           <h2>Members</h2>
-          <p>APCEA is proudly led by student co-founders:</p>
+          <p>APCEA is proudly led by student co-founders committed to cultural heritage and community growth:</p>
           <div style="background:#f8fafc; padding:2rem; border-radius:16px; margin-top:1rem;">
             <ul style="list-style:none; padding:0; font-size:1.1rem; font-weight:600; text-align:center;">
-              <li style="margin-bottom:0.8rem;">Edric Chan</li>
-              <li style="margin-bottom:0.8rem;">Alexander Zhang</li>
-              <li style="margin-bottom:0.8rem;">Yuelin Qu</li>
-              <li style="margin-bottom:0.8rem;">Sixian Dong</li>
-              <li style="margin-bottom:0.8rem;">HanYa Yu</li>
-              <li>Shiqing Huang</li>
+              <li style="margin-bottom:0.8rem;">Edric Chan | Alexander Zhang | Yuelin Qu</li>
+              <li>Sixian Dong | HanYa Yu | Shiqing Huang</li>
             </ul>
           </div>
         </div>
@@ -319,16 +329,15 @@ const content = {
     events: {
       html: `
         <div class="card">
-          <span class="tag">Activities</span>
+          <span class="tag">Highlights</span>
           <h2>Events & Gallery</h2>
-          <p><strong>APCEA’s youth leaders connect families and cultures through vibrant community celebrations.</strong></p>
+          <p><strong>Experience the impact of APCEA youth leaders.</strong> We connect communities through education, celebration, and shared traditions.</p>
         </div>
 
         <div class="card">
-          <h3>Elegance in Motion: Christmas Electric Light Parade</h3>
+          <h3>Christmas Electric Light Parade</h3>
           <p><strong>Date:</strong> December 5, 2023</p>
-          <p>APCEA made its debut with a stunning cultural procession themed <em>"Cultural Harmony, Lighting Tradition."</em> High school students marched in flowing Hanfu robes while members of the Temecula Qipao Club showcased classic "National Dress" under the holiday lights.</p>
-          
+          <p>APCEA debuted in the Temecula parade with the theme <em>"Cultural Harmony, Lighting Tradition."</em> Our members showcased the elegance of traditional Hanfu and Qipao attire under the holiday lights.</p>
           <div class="gallery">
             <img src="08d888745dc72cda47911b06f2fcc66.jpg">
             <img src="ba2bd81cd10da7ac108cdbead5ec021.jpg">
@@ -338,10 +347,9 @@ const content = {
         </div>
 
         <div class="card">
-          <h3>Temecula CultureFest: Promoting Heritage</h3>
+          <h3>Temecula CultureFest</h3>
           <p><strong>Date:</strong> May 17, 2025</p>
-          <p>APCEA’s booth was a highlight of the festival, offering hands-on experiences in calligraphy, origami, and traditional strategy games. Our youth volunteers introduced local families to the artistic beauty and depth of Chinese heritage.</p>
-
+          <p>APCEA’s booth welcomed visitors to explore Chinese calligraphy, origami, and strategy games, helping local families discover Asian heritage through hands-on participation.</p>
           <div class="gallery">
             <img src="38676d8d77d96caf67f70806378a07a.jpg">
             <img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
@@ -353,19 +361,17 @@ const content = {
         <div class="card">
           <h3>Community Educational Workshop</h3>
           <p><strong>Date:</strong> September 28, 2025</p>
-          <p>APCEA partnered with Yamei Academy and DELAC to host a workshop at the local library. Student members shared our mission of youth education and cross-cultural exchange, helping families navigate community resources.</p>
-          
-          <div style="display: flex; gap: 1rem; margin: 1.5rem 0;">
-            <img src="1cecc469b24a3f060f3e97b9bbb52a9.jpg" style="flex: 1; height: 300px; object-fit: cover; border-radius:18px;">
-            <img src="e0459fd83cc234be68bafdbb0e2d3b0.jpg" style="flex: 1; height: 300px; object-fit: cover; border-radius:18px;">
+          <p>Partnering with Yamei Academy and DELAC, APCEA students introduced our mission of fostering youth education and cultural exchange, helping families navigate critical community resources.</p>
+          <div class="workshop-row">
+            <img src="1cecc469b24a3f060f3e97b9bbb52a9.jpg">
+            <img src="e0459fd83cc234be68bafdbb0e2d3b0.jpg">
           </div>
         </div>
 
         <div class="card">
           <h3>Halloween Cultural Integration Project</h3>
           <p><strong>Date:</strong> October 2025</p>
-          <p>This project explored how traditional festivals bridge cultures. APCEA youth helped new immigrant families engage with local customs through "Trick or Treat" routes and neighborhood decorating, fostering a sense of belonging for all.</p>
-          
+          <p>This initiative explored local holidays as bridges for cohesion. APCEA youth helped immigrant families engage with traditions like "Trick or Treat," fostering a strong sense of community belonging.</p>
           <div class="gallery">
             <img src="1ee972c7d90f5012a93c898a212e330.jpg">
             <img src="d06c99a77d036f35e52bc3f3aeb4d75.jpg">
@@ -384,8 +390,7 @@ const content = {
         <div class="card" style="text-align:center;">
           <span class="tag">主页</span>
           <h2>欢迎来到 APCEA</h2>
-          <p>欢迎来到<strong>亚太文化与教育协会</strong>！我们是一个学生主导的非营利组织，致力于在社区推广文化与教育成长。</p>
-          
+          <p>欢迎来到<strong>亚太文化与教育协会 (APCEA)</strong>。我们是一个由学生创办的非营利组织，致力于推广亚洲文化与教育卓越发展。</p>
           <div style="margin:2rem 0;">
              <img src="a0e4734c1f8bd50b8ed91bd90f7c015.jpg" style="max-width:100%; box-shadow:var(--shadow-hover);">
           </div>
@@ -397,7 +402,7 @@ const content = {
         <div class="card">
           <span class="tag">简介</span>
           <h2>关于我们</h2>
-          <p><strong>APCEA</strong> 通过文化展示、志愿服务与教育项目，促进跨文化理解与青少年领导力发展。</p>
+          <p><strong>APCEA</strong> 是一个由青少年驱动的非营利组织。通过庆祝多元文化和促进社区团结，我们致力于创造一个更具包容性的世界。</p>
         </div>
       `
     },
@@ -405,8 +410,8 @@ const content = {
       html: `
         <div class="card">
           <span class="tag">核心团队</span>
-          <h2>成员</h2>
-          <p>协会由以下学生共同创立：</p>
+          <h2>成员介绍</h2>
+          <p>APCEA 由致力于文化传承与社区成长的学生共同创立并领导：</p>
           <div style="background:#f8fafc; padding:2rem; border-radius:16px; margin-top:1rem;">
             <ul style="list-style:none; padding:0; font-size:1.1rem; font-weight:600; text-align:center;">
               <li>Edric Chan | Alexander Zhang | Yuelin Qu</li>
@@ -421,14 +426,13 @@ const content = {
         <div class="card">
           <span class="tag">精彩瞬间</span>
           <h2>活动与相册</h2>
-          <p><strong>青少年成员在实践中服务社区，推广多元文化。</strong></p>
+          <p><strong>见证 APCEA 青少年成员在实践中的影响力。</strong></p>
         </div>
 
         <div class="card">
-          <h3>汉服翩翩：圣诞电光游行首秀</h3>
+          <h3>圣诞电光游行：文化和谐之美</h3>
           <p><strong>日期：</strong>2023 年 12 月 5 日</p>
-          <p>APCEA 游行方阵以“文化和谐”为主题首次亮相。高中生身着华美汉服，旗袍俱乐部女士熠熠生辉，向社区展示了中华服饰的古典韵味与现代美感。</p>
-          
+          <p>APCEA 以“文化和谐，点亮传统”为主题首次亮相特美古市游行。成员们身着汉服与旗袍，在节日的流光溢彩中展现了独特的东方美学。</p>
           <div class="gallery">
             <img src="08d888745dc72cda47911b06f2fcc66.jpg">
             <img src="ba2bd81cd10da7ac108cdbead5ec021.jpg">
@@ -438,10 +442,9 @@ const content = {
         </div>
 
         <div class="card">
-          <h3>Temecula 文化节：弘扬遗产</h3>
+          <h3>Temecula 文化节</h3>
           <p><strong>日期：</strong>2025 年 5 月 17 日</p>
-          <p>中华文化摊位通过书法、折纸与围棋互动，吸引了大量市民。青少年志愿者通过行动让文化传承在互动中焕发生机。</p>
-          
+          <p>我们的文化互动摊位成为亮点。志愿者们通过书法、折纸和围棋互动，引导当地家庭亲身感受亚洲文化的深度与艺术魅力。</p>
           <div class="gallery">
             <img src="38676d8d77d96caf67f70806378a07a.jpg">
             <img src="728636ca26f79cd3f26e8d5fb19dc81.jpg">
@@ -453,19 +456,17 @@ const content = {
         <div class="card">
           <h3>社区教育研讨会</h3>
           <p><strong>日期：</strong>2025 年 9 月 28 日</p>
-          <p>协同亚美教育与 DELAC 举办。青少年成员介绍了协会的非营利宗旨，帮助社区家庭了解教育资源，并提升了自身的表达与领导力。</p>
-          
-          <div style="display: flex; gap: 1rem; margin: 1.5rem 0;">
-            <img src="1cecc469b24a3f060f3e97b9bbb52a9.jpg" style="flex: 1; height: 300px; object-fit: cover; border-radius:18px;">
-            <img src="e0459fd83cc234be68bafdbb0e2d3b0.jpg" style="flex: 1; height: 300px; object-fit: cover; border-radius:18px;">
+          <p>协同亚美教育与 DELAC，学生们积极介绍协会宗旨，帮助社区家庭了解教育资源，在服务中锻炼了领导力与公众演讲能力。</p>
+          <div class="workshop-row">
+            <img src="1cecc469b24a3f060f3e97b9bbb52a9.jpg">
+            <img src="e0459fd83cc234be68bafdbb0e2d3b0.jpg">
           </div>
         </div>
 
         <div class="card">
           <h3>万圣节文化融合项目</h3>
           <p><strong>日期：</strong>2025 年 10 月</p>
-          <p>通过参与社区讨糖与装饰活动，青少年志愿者帮助新移民家庭融入本地邻里生活，在欢乐中建立了深厚的文化理解与友谊。</p>
-          
+          <p>本项目探索传统节日作为凝聚力的桥梁。青少年志愿者协助新移民家庭参与节日习俗，增强了跨文化理解并建立了社区归属感。</p>
           <div class="gallery">
             <img src="1ee972c7d90f5012a93c898a212e330.jpg">
             <img src="d06c99a77d036f35e52bc3f3aeb4d75.jpg">
